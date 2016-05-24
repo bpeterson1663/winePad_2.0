@@ -37,17 +37,25 @@
       </div>
     </div>
   </div>
-
-
-
-
-
-
   <div class="container" id="topContainer">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
+          <h1>Add Wine</h1>
+            <form  id="searchApi" >
+              <div class="form-group">
+                <label for="searchApi">Search Winery: </label>
+                <input class="form-control" placeholder="Winery" type="text" name="searchApi"/>
+              </div>
 
+            <input class="btn btn-info" type="submit" name="submit" value="Search" />
+            </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="wine-results">
 
+        </div>
       </div>
     </div>
   </div>
