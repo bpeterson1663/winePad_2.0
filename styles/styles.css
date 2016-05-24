@@ -1,0 +1,12 @@
+body{
+  background-image:url('../images/background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #edf2f6;
+}
+
+#topContainer{
+  margin-top: 50px;
+  text-align:center;
+}
