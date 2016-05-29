@@ -52,8 +52,8 @@ if($_POST['submit']=="Register"){
       $query = "INSERT INTO `users` (`name`, `email`, `username`, `password`) VALUES ('".$_POST['name']."', '".$_POST['email']."', '".mysqli_real_escape_string($link, $_POST['username'])."', '".md5(md5($_POST['username']).$_POST['password'])."');";
 
       mysqli_query($link, $query);
-
-      $query = "CREATE TABLE winelist_".$_POST['username']." (ID int NOT NULL AUTO_INCREMENT, Name text, Varietal text, Vintage text, Appelation text, Region text, Imgurl text, Cost int, Price int, Inventory int, Tastingnotes text, Wineryinfo text, PRIMARY KEY (ID));";
+      //creates new wine list table for each user
+      $query = "CREATE TABLE winelist_".$_POST['username']." (ID int NOT NULL AUTO_INCREMENT, Name text, Varietal text, Vintage text, Appellation text, Region text, Imgurl text, Cost decimal, Price decimal, Size text, Inventory decimal, Tastingnotes text, Wineryinfo text, PRIMARY KEY (ID));";
 
       mysqli_query($link, $query);
 
@@ -68,6 +68,7 @@ if($_POST['submit']=="Register"){
 
 if ($_POST['submit'] == "Log In") {
 
+  setcookie('username', $_POST['loginusername']);
   $query = "SELECT * FROM users WHERE username='".mysqli_real_escape_string($link, $_POST['loginusername'])."' AND password='".md5(md5($_POST['loginusername']).$_POST['loginpassword'])."';";
 
   $result = mysqli_query($link, $query);

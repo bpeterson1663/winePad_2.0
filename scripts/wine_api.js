@@ -6,12 +6,20 @@ $(document).ready(function(){
     searchApi();
   });
 
-
 });
+//create function that will get information from user to search for winery
+function searchApi(){
+  event.preventDefault();
+  var winerySearch = $('#searchApi').serializeArray();
+  $.each(winerySearch, function(index, element){
+    wine[element.name] = element.value;
+  });
+  //send information collected to wineApiCall
+  wineApiCall(wine);
+}
 
-function wineApi(winery){
+function wineApiCall(winery){
   var apiKey = "d92bbdc39ab169cf89da261bad304bed";
-  console.log("Winery inside the WineAPI, ", winery);
   var wineSearch = winery.searchApi;
   $.ajax({
     type: 'GET',
@@ -19,25 +27,14 @@ function wineApi(winery){
     success: displayResults
   });
 }
-
-function searchApi(){
-  event.preventDefault();
-  var winerySearch = $('#searchApi').serializeArray();
-  $.each(winerySearch, function(index, element){
-    wine[element.name] = element.value;
-  });
-  console.log("Wine ,", wine);
-  wineApi(wine);
-}
-
+//display the results upon success of the ajax call
 function displayResults(response){
   $('.wine-results').empty();
   var wineResults = response.Products.List;
-  console.log("Wine Results: ", wineResults);
+
   for(var i = 0; i < wineResults.length; i++){
     $('.wine-results').append('<div class="animated fadeInRight underline"></div>');
     var $el = $('.wine-results').children().last();
     $el.append('<div>' +wineResults[i].Name+'</div>');
-
   }
 }
