@@ -1,3 +1,13 @@
+<?php
+include('scripts/connection.php');
+include('scripts/registration_login_script.php');
+  $query = "SELECT * FROM winelist WHERE User='".$_COOKIE['username']."';";
+
+
+
+
+ ?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -40,7 +50,17 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
 
+          <?php
+      
+            if($result = mysqli_query($link, $query)){
 
+              while ($row = mysqli_fetch_array($result)){
+                  echo($row['Name']."</br>");
+              };
+
+            }
+
+           ?>
       </div>
     </div>
   </div>

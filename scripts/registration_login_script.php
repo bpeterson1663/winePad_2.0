@@ -53,9 +53,9 @@ if($_POST['submit']=="Register"){
 
       mysqli_query($link, $query);
       //creates new wine list table for each user
-      $query = "CREATE TABLE winelist_".$_POST['username']." (ID int NOT NULL AUTO_INCREMENT, Name text, Varietal text, Vintage text, Appellation text, Region text, Imgurl text, Cost decimal, Price decimal, Size text, Inventory decimal, Tastingnotes text, Wineryinfo text, PRIMARY KEY (ID));";
+      //$query = "CREATE TABLE winelist_".$_POST['username']." (ID int NOT NULL AUTO_INCREMENT, Name text, Varietal text, Vintage text, Appellation text, Region text, Imgurl text, Cost decimal, Price decimal, Size text, Inventory decimal, Tastingnotes text, Wineryinfo text, PRIMARY KEY (ID));";
 
-      mysqli_query($link, $query);
+      //mysqli_query($link, $query);
 
       header("Location: home.php");
 

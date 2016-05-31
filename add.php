@@ -1,6 +1,32 @@
 <?php
-include('scripts/connection.php');
+
 include('scripts/registration_login_script.php');
+
+include('connection.php');
+if($_POST['submit']=='Add Wine'){
+  $name = $_POST['name'];
+  $vintage = $_POST['vintage'];
+  $varietal = $_POST['varietal'];
+  $appellation = $_POST['appellation'];
+  $region = $_POST['region'];
+  $cost = $_POST['cost'];
+  $imageurl = $_POST['imageurl'];
+  $price = $_POST['price'];
+  $size = $_POST['size'];
+  $tastingnotes = $_POST['tastingnotes'];
+  $wineryinfo = $_POST['wineryinfo'];
+
+  $query = "INSERT INTO `winelist` (`User`, `Name`, `Varietal`, `Vintage`, `Appellation`, `Region`, `Cost`, `Price`, `Size`, `Inventory`, `Tastingnotes`, `WineryInfo`) VALUES ('".$_COOKIE['username']."', '".$name."', '".$varietal."', '".$vintage."', '"
+              .$appellation."', '".$region."', '".$cost."', '".$price."', '".$size."', '".$inventory."', '".$tastingnotes."', '".$wineryinfo."');";
+
+  if(mysqli_query($link, $query)){
+    $message = "Wine Added Succesfully";
+  }else{
+    $message = "There was an error adding your wine. Please try again.";
+  }
+
+}
+
  ?>
 
 <!DOCTYPE html>
@@ -47,6 +73,11 @@ include('scripts/registration_login_script.php');
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
           <h1>Add Wine</h1>
+          <?php
+            if($message){
+              echo '<div class="alert alert-success">'.$message.'</div>';
+            }
+          ?>
           <p class="lead">Search Winery</p>
 
             <form  id="searchApi" >
@@ -65,7 +96,7 @@ include('scripts/registration_login_script.php');
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <p class="lead">Add Wine Manually</p>
-        <form id="addWineManually" method="POST" action="scripts/add_wine.php">
+        <form id="addWineManually" method="POST" >
           <div class="form-group">
             <label for="name">Name: </label>
             <input class="form-control" placeholder="Name" type="text" name="name"/>
@@ -111,7 +142,7 @@ include('scripts/registration_login_script.php');
             <input class="form-control" placeholder="Winery Information" type="text" name="wineryinfo"/>
           </div>
 
-            <input class="btn btn-info" type="submit" name="submit" value="Add Wine"/>
+            <input class="btn btn-info" type="submit" name="submit" value="Add Wine"  />
         </form>
 
       </div>

@@ -33,7 +33,7 @@ function displayResults(response){
   var wineResults = response.Products.List;
   console.log("Results from API, ", wineResults);
   for(var i = 0; i < wineResults.length; i++){
-    $('.wine-results').append('<form class="wine-result-individual" action="scripts/add_wine.php" method="POST"></form>');
+    $('.wine-results').append('<form class="wine-result-individual" method="POST"></form>');
     var $el = $('.wine-results').children().last();
     $el.append('<div class="form-group"><img src="'+wineResults[i].Labels[0].Url+'"/><label for="name">Name: </label><input class="form-control" type="text" name="name" value="'+wineResults[i].Name+'" /></div>');
     $el.append('<div class="form-group"><label for="varietal">Varietal: </label><input class="form-control" type="text" name="varietal" value="'+wineResults[i].Varietal.Name+'" /></div>');
