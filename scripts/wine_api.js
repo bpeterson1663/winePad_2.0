@@ -31,10 +31,13 @@ function wineApiCall(winery){
 function displayResults(response){
   $('.wine-results').empty();
   var wineResults = response.Products.List;
-
+  console.log("Results from API, ", wineResults);
   for(var i = 0; i < wineResults.length; i++){
-    $('.wine-results').append('<div class="animated fadeInRight underline"></div>');
+    $('.wine-results').append('<form class="wine-result-individual" action="scripts/add_wine.php" method="POST"></form>');
     var $el = $('.wine-results').children().last();
-    $el.append('<div>' +wineResults[i].Name+'</div>');
+    $el.append('<div class="form-group"><label for="name">Name: </label><input class="form-control" type="text" name="name" value="'+wineResults[i].Name+'" /></div>');
+
+    $el.append('<input type="submit" name="submit" value="Add Wine" class="add-wine btn btn-info">');
+
   }
 }

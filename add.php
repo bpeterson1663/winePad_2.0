@@ -1,25 +1,6 @@
 <?php
 include('scripts/connection.php');
 include('scripts/registration_login_script.php');
-if($_POST['submit']=='Submit Manually'){
-  $name = $_POST['name'];
-  $vintage = $_POST['vintage'];
-  $varietal = $_POST['varietal'];
-  $appellation = $_POST['appellation'];
-  $region = $_POST['region'];
-  $cost = $_POST['cost'];
-  $imageurl = $_POST['imageurl'];
-  $price = $_POST['price'];
-  $size = $_POST['size'];
-  $tastingnotes = $_POST['tastingnotes'];
-  $wineryinfo = $_POST['wineryinfo'];
-
-  $query = "INSERT INTO `winelist` (`User`, `Name`, `Varietal`, `Vintage`, `Appellation`, `Region`, `Cost`, `Price`, `Size`, `Inventory`, `Tastingnotes`, `WineryInfo`) VALUES ('".$_COOKIE['username']."', '".$name."', '".$varietal."', '".$vintage."', '"
-              .$appellation."', '".$region."', '".$cost."', '".$price."', '".$size."', '".$inventory."', '".$tastingnotes."', '".$wineryinfo."');";
-
-  mysqli_query($link, $query);
-}
-
  ?>
 
 <!DOCTYPE html>
@@ -74,13 +55,17 @@ if($_POST['submit']=='Submit Manually'){
               </div>
               <input class="btn btn-info" type="submit" name="submit" value="Search" data-toggle="modal" data-target="#searchResults" />
             </form>
+            <div class="wine-results">
+
+            </div>
 
       </div>
     </div>
+
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 col-md-offset-3">
         <p class="lead">Add Wine Manually</p>
-        <form id="addWineManually" method="POST">
+        <form id="addWineManually" method="POST" action="scripts/add_wine.php">
           <div class="form-group">
             <label for="name">Name: </label>
             <input class="form-control" placeholder="Name" type="text" name="name"/>
@@ -126,22 +111,25 @@ if($_POST['submit']=='Submit Manually'){
             <input class="form-control" placeholder="Winery Information" type="text" name="wineryinfo"/>
           </div>
 
-            <input class="btn btn-info" type="submit" name="submit" value="Submit Manually" data-toggle="modal" data-target="#wineAddedSuccessfully" />
+            <input class="btn btn-info" type="submit" name="submit" value="Add Wine"/>
         </form>
+
       </div>
     </div>
   </div>
-
   <!--Search Results Modal -->
 <div class="modal fade" id="searchResults" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
       </div>
-      <div class="modal-body wine-results">
+      <div class="modal-body">
+        <div class="wine-results">
 
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
