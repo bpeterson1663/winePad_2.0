@@ -1,10 +1,7 @@
 <?php
 include('scripts/connection.php');
 include('scripts/registration_login_script.php');
-  $query = "SELECT * FROM winelist WHERE User='".$_COOKIE['username']."';";
-
-
-
+  $query = "SELECT * FROM winelist_".$_COOKIE['username'].";";
 
  ?>
 
@@ -17,6 +14,7 @@ include('scripts/registration_login_script.php');
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="styles/styles.css" rel="stylesheet" />
+    <link href="styles/animate.css" rel="stylesheet" />
   </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
   <div class="navbar navbar-default navbar-fixed-top">
@@ -49,19 +47,39 @@ include('scripts/registration_login_script.php');
   <div class="container" id="topContainer">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
+          <h1>Home</h1>
+          <div class="social-feed-box">
 
           <?php
-      
+
             if($result = mysqli_query($link, $query)){
 
               while ($row = mysqli_fetch_array($result)){
-                  echo($row['Name']."</br>");
+
+                  echo('<div class="animated fadeInRight underline">
+                          <div class="social-avatar">
+                            <img class="pull-left" src="'.$row['Imgurl'].'" />
+                          </div>
+                          <div class="media-body">'.$row['Name']."
+                          </div>
+                        </div></br>");
               };
 
             }
 
            ?>
+         </div>
       </div>
+
+      <!--
+      $('.social-feed-box').append('<div class="animated fadeInRight underline"></div>');//creates each individual comment
+      var $el = $('.social-feed-box').children().last();
+      $el.append('<div class="post-icon"><img src="/assets/views/images/'+ iconType +'.png" height="30" width="30" /></div>');
+      $el.append('<div class="social-avatar"><a href="" class="pull-left"><img alt="image" src="/vendors/Static_Seed_Project/img/a1.jpg"></a><div class="media-body"><a href="#">'+message.name+'</a><small class="text-muted">'+message.date_created+'</small></div></div>');
+      $el.append('<div class="social-body"><p>'+message.content+'</p><div class="btn-group"><button class="btn btn-white btn-xs messageLike" data-id="' + message._id + '"><span>'+ likeAmmount +'</span><i class="fa fa-thumbs-up"></i> Like this!</button><button class="btn btn-white btn-xs" id="messageComment" data-toggle="modal" data-target="#guestMessageCommentModal" data-id="'+message._id+'"><i class="fa fa-comments"></i> Comment</button></div><button class="btn btn-white btn-xs flag-button small-type messageFlag" data-id="' + message._id + '"><i class="fa fa-flag"></i> Report inappropriate post</button></div>');
+      $el.append('<div id="'+message._id+'"></div>');
+      getCommentsByMessage(message._id);
+      -->
     </div>
   </div>
 

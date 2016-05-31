@@ -23,7 +23,7 @@ function wineApiCall(winery){
   var wineSearch = winery.searchApi;
   $.ajax({
     type: 'GET',
-    url: 'http://services.wine.com/api/beta2/service.svc/json/catalog?search='+wineSearch+'&size=10&apikey='+apiKey+'',
+    url: 'http://services.wine.com/api/beta2/service.svc/json/catalog?search='+wineSearch+'&size=3&apikey='+apiKey+'',
     success: displayResults
   });
 }

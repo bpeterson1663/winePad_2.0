@@ -16,13 +16,13 @@ if($_POST['submit']=='Add Wine'){
   $tastingnotes = $_POST['tastingnotes'];
   $wineryinfo = $_POST['wineryinfo'];
 
-  $query = "INSERT INTO `winelist` (`User`, `Name`, `Varietal`, `Vintage`, `Appellation`, `Region`, `Cost`, `Price`, `Size`, `Inventory`, `Tastingnotes`, `WineryInfo`) VALUES ('".$_COOKIE['username']."', '".$name."', '".$varietal."', '".$vintage."', '"
-              .$appellation."', '".$region."', '".$cost."', '".$price."', '".$size."', '".$inventory."', '".$tastingnotes."', '".$wineryinfo."');";
+  $query = "INSERT INTO `winelist_".$_COOKIE['username']."` (`Name`, `Varietal`, `Vintage`, `Appellation`, `Region`, `Imgurl`, `Cost`, `Price`, `Size`, `Inventory`, `Tastingnotes`, `WineryInfo`) VALUES ('".$name."', '".$varietal."', '".$vintage."', '"
+              .$appellation."', '".$region."', '".$imageurl."', '".$cost."', '".$price."', '".$size."', '".$inventory."', '".$tastingnotes."', '".$wineryinfo."');";
 
   if(mysqli_query($link, $query)){
-    $message = "Wine Added Succesfully";
+    $message = '<div class="alert alert-success">Wine Added Succesfully</div>';
   }else{
-    $message = "There was an error adding your wine. Please try again.";
+    $message = '<div class="alert alert-danger">There was an error adding your wine. Please try again.</div>';
   }
 
 }
@@ -40,6 +40,7 @@ if($_POST['submit']=='Add Wine'){
     <script src="scripts/wine_api.js" type="text/javascript"></script>
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="styles/styles.css" rel="stylesheet" />
+    <link href="styles/animate.css" rel="stylesheet" />
   </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
   <div class="navbar navbar-default navbar-fixed-top">
@@ -75,7 +76,7 @@ if($_POST['submit']=='Add Wine'){
           <h1>Add Wine</h1>
           <?php
             if($message){
-              echo '<div class="alert alert-success">'.$message.'</div>';
+              echo $message;
             }
           ?>
           <p class="lead">Search Winery</p>
@@ -169,24 +170,7 @@ if($_POST['submit']=='Add Wine'){
     </div>
   </div>
 </div>
-<!--Wine Added Succesffully Modal-->
-<div class="modal fade" id="wineAddedSuccessfully" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <h1>Wine Was Added Succesfully!</h1>
-        <?php echo "User Name is ".$_COOKIE['username'];?>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
+
 </div>
 
 </body>

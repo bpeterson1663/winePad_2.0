@@ -1,3 +1,10 @@
+<?php
+include('scripts/connection.php');
+include('scripts/registration_login_script.php');
+  $query = "SELECT * FROM winelist_".$_COOKIE['username'].";";
+
+ ?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,6 +14,7 @@
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="styles/styles.css" rel="stylesheet" />
+    <link href="styles/animate.css" rel="stylesheet" />
   </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
   <div class="navbar navbar-default navbar-fixed-top">
@@ -37,15 +45,22 @@
     </div>
   </div>
 
-
-
-
-
-
   <div class="container" id="topContainer">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
+        <h1>Update / Delete Wine</h1>
+        <div class="social-feed-box">
 
+        <?php
+
+          if($result = mysqli_query($link, $query)){
+            while ($row = mysqli_fetch_array($result)){
+                echo('<div class="animated fadeInRight underline">'.$row['Name']."</div></br>");
+            };
+          }
+
+         ?>
+       </div>
 
       </div>
     </div>
