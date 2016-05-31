@@ -35,7 +35,17 @@ function displayResults(response){
   for(var i = 0; i < wineResults.length; i++){
     $('.wine-results').append('<form class="wine-result-individual" action="scripts/add_wine.php" method="POST"></form>');
     var $el = $('.wine-results').children().last();
-    $el.append('<div class="form-group"><label for="name">Name: </label><input class="form-control" type="text" name="name" value="'+wineResults[i].Name+'" /></div>');
+    $el.append('<div class="form-group"><img src="'+wineResults[i].Labels[0].Url+'"/><label for="name">Name: </label><input class="form-control" type="text" name="name" value="'+wineResults[i].Name+'" /></div>');
+    $el.append('<div class="form-group"><label for="varietal">Varietal: </label><input class="form-control" type="text" name="varietal" value="'+wineResults[i].Varietal.Name+'" /></div>');
+    $el.append('<div class="form-group"><label for="vintage">Vintage: </label><input class="form-control" type="text" name="vintage" value="'+wineResults[i].Vintage+'" /></div>');
+    $el.append('<div class="form-group"><label for="appellation">Appellation: </label><input class="form-control" type="text" name="appellation" value="'+wineResults[i].Appellation.Name+'" /></div>');
+    $el.append('<div class="form-group"><label for="region">Region: </label><input class="form-control" type="text" name="region" value="'+wineResults[i].Appellation.Region.Name+'" /></div>');
+    $el.append('<div class="form-group"><label for="imageurl">Image URL: </label><input class="form-control" type="text" name="imageurl" value="'+wineResults[i].Labels[0].Url+'" /></div>');
+    $el.append('<div class="form-group"><label for="cost">Cost: </label><input class="form-control" type="number" name="cost" placeholder="$" /></div>');
+    $el.append('<div class="form-group"><label for="price">Price: </label><input class="form-control" type="number" name="price" placeholder="$" /></div>');
+    $el.append('<div class="form-group"><label for="size">Size: </label><input class="form-control" type="number" name="size" /></div>');
+    $el.append('<div class="form-group"><a href="'+wineResults[i].Community.Reviews.Url+'">Tasting Notes: </a><input class="form-control" type="text" name="tastingnotes"/></div>');
+    $el.append('<div class="form-group"><a href="'+wineResults[i].Community.Url+'">Winery Information: </a><input class="form-control" type="text" name="wineryinfo" /></div>');
 
     $el.append('<input type="submit" name="submit" value="Add Wine" class="add-wine btn btn-info">');
 
