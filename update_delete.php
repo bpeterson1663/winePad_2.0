@@ -1,6 +1,7 @@
 <?php
-include('scripts/connection.php');
-include('scripts/registration_login_script.php');
+  include('scripts/connection.php');
+  include('scripts/registration_login_script.php');
+
   $query = "SELECT * FROM winelist_".$_COOKIE['username'].";";
 
  ?>
@@ -12,6 +13,8 @@ include('scripts/registration_login_script.php');
     <title>Update Delete</title>
     <script src="vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="scripts/edit.js" type="text/javascript"></script>
+
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="styles/styles.css" rel="stylesheet" />
     <link href="styles/animate.css" rel="stylesheet" />
@@ -49,22 +52,32 @@ include('scripts/registration_login_script.php');
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h1>Update / Delete Wine</h1>
-        <div class="social-feed-box">
+        <div class="wine-feed-box">
 
         <?php
-
           if($result = mysqli_query($link, $query)){
+
             while ($row = mysqli_fetch_array($result)){
-                echo('<div class="animated fadeInRight underline">'.$row['Name']."</div></br>");
-            };
-          }
+              echo('<div class="animated fadeInRight underline">
+                      <div class="wine-avatar"><img class="pull-left" src="'.$row['Imgurl'].'" /></div>
+                      <div><b>'.$row['Name'].' '.$row['Vintage'].' '.$row['Varietal'].'</b></div>
+                      <div>Inventory: '.$row['Inventory'].' Cost: $'.$row['Cost'].' Price: $'.$row['Price'].'</div>
+                      <button value="'.$row['ID'].'" class="btn btn-danger update" name="update">Update</button> <button value="'.$row['ID'].'" class="btn btn-danger" name="delete">Delete</button>
+                   </div>');
+              }
+            }
+
 
          ?>
+
+
        </div>
 
       </div>
     </div>
   </div>
+
+
 
 </body>
 </html>

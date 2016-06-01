@@ -43,11 +43,12 @@ function displayResults(response){
     $el.append('<div class="form-group"><label for="imageurl">Image URL: </label><input class="form-control" type="text" name="imageurl" value="'+wineResults[i].Labels[0].Url+'" /></div>');
     $el.append('<div class="form-group"><label for="cost">Cost: </label><input class="form-control" type="number" name="cost" placeholder="$" /></div>');
     $el.append('<div class="form-group"><label for="price">Price: </label><input class="form-control" type="number" name="price" placeholder="$" /></div>');
+    $el.append('<div class="form-group"><label for="inventory">Inventory: </label><input class="form-control" type="number" name="inventory" /></div>');
     $el.append('<div class="form-group"><label for="size">Size: </label><input class="form-control" type="number" name="size" /></div>');
     $el.append('<div class="form-group"><a href="'+wineResults[i].Community.Reviews.Url+'">Tasting Notes: </a><input class="form-control" type="text" name="tastingnotes"/></div>');
     $el.append('<div class="form-group"><a href="'+wineResults[i].Community.Url+'">Winery Information: </a><input class="form-control" type="text" name="wineryinfo" /></div>');
 
-    $el.append('<input type="submit" name="submit" value="Add Wine" class="add-wine btn btn-info">');
+    $el.append('<input type="submit" name="submit" value="Add Wine" class="add-wine btn btn-danger">');
 
   }
 }

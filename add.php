@@ -13,6 +13,7 @@ if($_POST['submit']=='Add Wine'){
   $imageurl = $_POST['imageurl'];
   $price = $_POST['price'];
   $size = $_POST['size'];
+  $inventory = $_POST['inventory'];
   $tastingnotes = $_POST['tastingnotes'];
   $wineryinfo = $_POST['wineryinfo'];
 
@@ -85,7 +86,7 @@ if($_POST['submit']=='Add Wine'){
               <div class="form-group">
                 <input class="form-control" placeholder="Winery" type="text" name="searchApi"/>
               </div>
-              <input class="btn btn-info" type="submit" name="submit" value="Search" data-toggle="modal" data-target="#searchResults" />
+              <input class="btn btn-danger" type="submit" name="submit" value="Search" data-toggle="modal" data-target="#searchResults" />
             </form>
             <div class="wine-results">
 
@@ -131,6 +132,10 @@ if($_POST['submit']=='Add Wine'){
             <input class="form-control" placeholder="Price" type="number" name="price"/>
           </div>
           <div class="form-group">
+            <label for="inventory">Price: </label>
+            <input class="form-control" placeholder="Inventory" type="number" name="inventory"/>
+          </div>
+          <div class="form-group">
             <label for="size">Size: </label>
             <input class="form-control" placeholder="Size" type="number" name="size"/>
           </div>
@@ -142,8 +147,7 @@ if($_POST['submit']=='Add Wine'){
             <label for="wineryinfo">Winery Information: </label>
             <input class="form-control" placeholder="Winery Information" type="text" name="wineryinfo"/>
           </div>
-
-            <input class="btn btn-info" type="submit" name="submit" value="Add Wine"  />
+            <input class="btn btn-danger" type="submit" name="submit" value="Add Wine"  />
         </form>
 
       </div>
@@ -151,12 +155,11 @@ if($_POST['submit']=='Add Wine'){
   </div>
   <!--Search Results Modal -->
 <div class="modal fade" id="searchResults" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">Search Results</h4>
       </div>
       <div class="modal-body">
         <div class="wine-results">
@@ -164,8 +167,7 @@ if($_POST['submit']=='Add Wine'){
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

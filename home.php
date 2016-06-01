@@ -48,7 +48,7 @@ include('scripts/registration_login_script.php');
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
           <h1>Home</h1>
-          <div class="social-feed-box">
+          <div class="wine-feed-box">
 
           <?php
 
@@ -57,18 +57,15 @@ include('scripts/registration_login_script.php');
               while ($row = mysqli_fetch_array($result)){
 
                   echo('<div class="animated fadeInRight underline">
-                          <div class="social-avatar">
-                            <img class="pull-left" src="'.$row['Imgurl'].'" />
-                          </div>
-                          <div class="media-body">'.$row['Name']."
-                          </div>
-                        </div></br>");
+                          <div class="wine-avatar"><img class="pull-left" src="'.$row['Imgurl'].'" /></div>
+                          <div><b>'.$row['Name'].' '.$row['Vintage'].' '.$row['Varietal'].'</b></div>
+                          <div>Inventory: '.$row['Inventory'].' Cost: $'.$row['Cost'].' Price: $'.$row['Price'].'</div>
+                        </div>');
               };
 
             }
 
            ?>
-         </div>
       </div>
 
       <!--
@@ -82,6 +79,6 @@ include('scripts/registration_login_script.php');
       -->
     </div>
   </div>
-
+</div>
 </body>
 </html>

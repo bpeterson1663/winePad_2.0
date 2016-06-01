@@ -1,7 +1,7 @@
 body{
   margin-top: 0;
   min-height:100%;
-  /*background-image: url('../images/background.jpg');*/
+  background-image: url('../images/background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -11,46 +11,15 @@ body{
 #topContainer{
   margin-top: 100px;
   text-align:center;
+  color: #d7d1d1;
 }
 
-.underline {
-  border-bottom: 1px solid #f1f1f1;
-}
-.social-feed-separated .social-avatar {
-  float: left;
-  padding: 0;
-}
-.social-feed-separated .social-avatar img {
-  width: 52px;
-  height: 52px;
-  border: 1px solid #e7eaec;
-}
-.social-feed-separated .social-feed-box .social-avatar {
-  padding: 15px 15px 0 15px;
-  float: none;
-}
-
-.social-avatar img {
+.wine-avatar img {
   height: 40px;
   width: 40px;
   margin-right: 10px;
 }
-.media-body {
-  overflow: hidden;
-}
-.media-body {
-  display: block;
-  width: auto;
-}
-.media-body > .media {
-  background: #f9f9f9;
-  border-radius: 3px;
-  border: 1px solid #f1f1f1;
-}
-.social-avatar .media-body{
-  font-size: 14px;
-  display: block;
-}
-.social-avatar {
+
+.wine-avatar {
   padding: 15px 15px 0 15px;
 }

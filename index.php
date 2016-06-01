@@ -34,7 +34,7 @@
             <input class="form-control" placeholder="Password" type="password" name="loginpassword" />
           </div>
 
-          <input class="btn btn-info" type="submit" name="submit" value="Log In" />
+          <input class="btn btn-danger" type="submit" name="submit" value="Log In" />
         </form>
       </div>
     </div>
@@ -44,7 +44,7 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h1>winePad</h1>
-        <p class="lead">Your personal wine database management system.</p>
+        <p class="lead">Your Personal Wine Cellar Management System</p>
         <?php
         //Display any eorrs
           if($error){
@@ -72,7 +72,7 @@
             <input class="form-control" placeholder="Password" type="password" name="password" value="<?php echo addslashes($_POST['password']);?>"/>
           </div>
 
-          <input class="btn btn-lg btn-info" type="submit" name="submit" value="Register" />
+          <input class="btn btn-lg btn-danger" type="submit" name="submit" value="Register" />
         </form>
 
 
