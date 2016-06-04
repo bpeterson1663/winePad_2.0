@@ -13,7 +13,6 @@
     <title>Update Delete</title>
     <script src="vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="scripts/edit.js" type="text/javascript"></script>
 
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="styles/styles.css" rel="stylesheet" />
@@ -62,7 +61,7 @@
                       <div class="wine-avatar"><img class="pull-left" src="'.$row['Imgurl'].'" /></div>
                       <div><b>'.$row['Name'].' '.$row['Vintage'].' '.$row['Varietal'].'</b></div>
                       <div>Inventory: '.$row['Inventory'].' Cost: $'.$row['Cost'].' Price: $'.$row['Price'].'</div>
-                      <button value="'.$row['ID'].'" class="btn btn-danger update" name="update">Update</button> <button value="'.$row['ID'].'" class="btn btn-danger" name="delete">Delete</button>
+                      <form action="scripts/edit.php" method="POST"><button type="submit" value="'.$row['ID'].'" class="btn btn-danger update" name="update" >Update</button></form> <button value="'.$row['ID'].'" class="btn btn-danger" name="delete">Delete</button>
                    </div>');
               }
             }
