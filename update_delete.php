@@ -60,7 +60,7 @@
                       <div class="wine-avatar"><img class="pull-left" src="'.$row['Imgurl'].'" /></div>
                       <div><b>'.$row['Name'].' '.$row['Vintage'].' '.$row['Varietal'].'</b></div>
                       <div>Inventory: '.$row['Inventory'].' Cost: $'.$row['Cost'].' Price: $'.$row['Price'].'</div>
-                      <form action="scripts/edit.php" method="POST"><button type="submit" value="'.$row['ID'].'" class="btn btn-danger" name="update" >Update</button></form><button value="'.$row['ID'].'" data-id="'.$row['ID'].'" class="btn btn-danger delete" name="delete" data-toggle="modal" data-target="#deleteWine" >Delete</button>
+                      <button data-id="'.$row['ID'].'" value="'.$row['ID'].'" class="btn btn-danger update-wine" name="update" data-toggle="modal" data-target="#updateWine">Update</button><button value="'.$row['ID'].'" data-id="'.$row['ID'].'" class="btn btn-danger delete" name="delete" data-toggle="modal" data-target="#deleteWine" >Delete</button>
                    </div>');
               }
             }
@@ -104,7 +104,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">Search Results</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" id="wineUpdateBody">
           <div class="wine-results">
 
           </div>

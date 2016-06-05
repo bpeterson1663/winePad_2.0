@@ -11,4 +11,19 @@ $(document).ready(function(){
             }
       });
   });
+
+  $('.update-wine').on('click', function(){
+    var id = $(this).data('id');
+    console.log('id', id);
+    $.ajax({
+        type: 'POST',
+        url: 'scripts/edit.php',
+        data: { ID: id },
+        success: function(response) {
+            $('#updateWine').modal('show');
+            $('#wineUpdateBody').append(response);
+
+          }
+    });
+  })
 });
