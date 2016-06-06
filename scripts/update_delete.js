@@ -30,7 +30,7 @@ function deleteWine(){
         url: 'scripts/delete.php',
         data: { ID: id },
         success: function(response) {
-            console.log(response);
+            $('.response').append(response);
           }
     });
   });

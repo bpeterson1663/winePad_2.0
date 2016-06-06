@@ -80,11 +80,14 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h1>Update / Delete Wine</h1>
-        <?php
-          if($message){
-            echo $message;
-          }
-        ?>
+        <div class="response">
+          <?php
+            if($message){
+              echo $message;
+            }
+          ?>
+        </div>
+
         <div class="wine-feed-box">
 
         <?php
