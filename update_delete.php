@@ -2,6 +2,36 @@
   include('scripts/connection.php');
   include('scripts/registration_login_script.php');
 
+  if($_POST['submit']=='Update Wine'){
+    $ID = $_POST['id'];
+    $name = $_POST['name'];
+    $vintage = $_POST['vintage'];
+    $varietal = $_POST['varietal'];
+    $appellation = $_POST['appellation'];
+    $region = $_POST['region'];
+    $cost = $_POST['cost'];
+    $imageurl = $_POST['imageurl'];
+    $price = $_POST['price'];
+    $size = $_POST['size'];
+    $inventory = $_POST['inventory'];
+    $tastingnotes = $_POST['tastingnotes'];
+    $wineryinfo = $_POST['wineryinfo'];
+
+    // $query = "INSERT INTO `winelist_".$_COOKIE['username']."` (`Name`, `Varietal`, `Vintage`, `Appellation`, `Region`, `Imgurl`, `Cost`, `Price`, `Size`, `Inventory`, `Tastingnotes`, `WineryInfo`) VALUES ('".$name."', '".$varietal."', '".$vintage."', '"
+    //             .$appellation."', '".$region."', '".$imageurl."', '".$cost."', '".$price."', '".$size."', '".$inventory."', '".$tastingnotes."', '".$wineryinfo."');";
+
+    $query = "UPDATE `winelist_".$_COOKIE['username']."`".
+              "SET `Name`='".$name."',`Varietal`='".$varietal."',`Vintage`='".$vintage."',`Appellation`='".$appellation."',`Region`='".$region."',`Imgurl`='".$imageurl."',`Cost`='".$cost."',`Price`='".$price."',`Size`='".$size."',`Inventory`='".$inventory."', ".
+              "`Tastingnotes`='".$tastingnotes."',`Wineryinfo`='".$wineryinfo."' WHERE ID='".$ID."';";
+
+    if(mysqli_query($link, $query)){
+      $message = '<div class="alert alert-success">Wine Updated Succesfully</div>';
+    }else{
+      $message = '<div class="alert alert-danger">There was an error updating your wine. Please try again.</div>';
+    }
+
+  }
+
  ?>
 
 <!DOCTYPE html>
@@ -12,6 +42,7 @@
     <script src="vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="scripts/update_delete.js" type="text/javascript"></script>
+
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="styles/styles.css" rel="stylesheet" />
     <link href="styles/animate.css" rel="stylesheet" />
@@ -49,6 +80,11 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h1>Update / Delete Wine</h1>
+        <?php
+          if($message){
+            echo $message;
+          }
+        ?>
         <div class="wine-feed-box">
 
         <?php
@@ -60,7 +96,7 @@
                       <div class="wine-avatar"><img class="pull-left" src="'.$row['Imgurl'].'" /></div>
                       <div><b>'.$row['Name'].' '.$row['Vintage'].' '.$row['Varietal'].'</b></div>
                       <div>Inventory: '.$row['Inventory'].' Cost: $'.$row['Cost'].' Price: $'.$row['Price'].'</div>
-                      <button data-id="'.$row['ID'].'" value="'.$row['ID'].'" class="btn btn-danger update-wine" name="update" data-toggle="modal" data-target="#updateWine">Update</button><button value="'.$row['ID'].'" data-id="'.$row['ID'].'" class="btn btn-danger delete" name="delete" data-toggle="modal" data-target="#deleteWine" >Delete</button>
+                      <button data-id="'.$row['ID'].'" value="'.$row['ID'].'" class="btn btn-danger update-wine" name="update" data-toggle="modal" data-target="#updateWine">Update</button><button value="'.$row['ID'].'" data-id="'.$row['ID'].'" class="btn btn-danger delete" name="delete" >Delete</button>
                    </div>');
               }
             }

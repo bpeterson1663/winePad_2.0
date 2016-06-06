@@ -132,7 +132,7 @@ if($_POST['submit']=='Add Wine'){
             <input class="form-control" placeholder="Price" type="number" name="price"/>
           </div>
           <div class="form-group">
-            <label for="inventory">Price: </label>
+            <label for="inventory">Inventory: </label>
             <input class="form-control" placeholder="Inventory" type="number" name="inventory"/>
           </div>
           <div class="form-group">
