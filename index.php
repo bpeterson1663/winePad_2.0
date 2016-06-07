@@ -1,6 +1,6 @@
 <?php
-  include('scripts/registration_login_script.php');//bring in php script
-  include('scripts/connection.php');//brings in the connection for the database
+  include('scripts/php/registration_login_script.php');//bring in php script
+  include('scripts/php/connection.php');//brings in the connection for the database
  ?>
 <!DOCTYPE html>
 <html>

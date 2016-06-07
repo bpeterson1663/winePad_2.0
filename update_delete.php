@@ -1,6 +1,6 @@
 <?php
-  include('scripts/connection.php');
-  include('scripts/registration_login_script.php');
+  include('scripts/php/connection.php');
+  include('scripts/php/registration_login_script.php');
 
   if($_POST['submit']=='Update Wine'){
     $ID = $_POST['id'];
@@ -41,7 +41,7 @@
     <title>Update Delete</title>
     <script src="vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="scripts/update_delete.js" type="text/javascript"></script>
+    <script src="scripts/js/update_delete.js" type="text/javascript"></script>
 
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="styles/styles.css" rel="stylesheet" />
@@ -144,9 +144,7 @@
           <h4 class="modal-title" id="myModalLabel">Search Results</h4>
         </div>
         <div class="modal-body" id="wineUpdateBody">
-          <div class="wine-results">
 
-          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

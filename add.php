@@ -1,8 +1,8 @@
 <?php
 
-include('scripts/registration_login_script.php');
+include('scripts/php/registration_login_script.php');
 
-include('connection.php');
+include('scripts/php/connection.php');
 if($_POST['submit']=='Add Wine'){
   $name = $_POST['name'];
   $vintage = $_POST['vintage'];
@@ -37,8 +37,8 @@ if($_POST['submit']=='Add Wine'){
     <title>Add</title>
     <script src="vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="scripts/add_wine.js" type="text/javascript"></script>
-    <script src="scripts/wine_api.js" type="text/javascript"></script>
+    <script src="scripts/js/wine_api.js" type="text/javascript"></script>
+    
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="styles/styles.css" rel="stylesheet" />
     <link href="styles/animate.css" rel="stylesheet" />

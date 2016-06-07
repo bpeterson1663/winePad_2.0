@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
   $('.delete').on('click', deleteWine);
 
   $('.update-wine').on('click', loadUpdateWineModal);
@@ -6,6 +7,7 @@ $(document).ready(function(){
 });
 
 function loadUpdateWineModal(){
+  $('#wineUpdateBody').empty();
   var id = $(this).data('id');
   console.log('id', id);
   $.ajax({
@@ -14,6 +16,7 @@ function loadUpdateWineModal(){
       data: { ID: id },
       success: function(response) {
           $('#updateWine').modal('show');
+          console.log("Response is, ", response);
           $('#wineUpdateBody').append(response);
         }
   });
@@ -27,11 +30,24 @@ function deleteWine(){
     console.log("id is ", id);
     $.ajax({
         type: 'POST',
-        url: 'scripts/delete.php',
+        url: 'scripts/php/delete.php',
         data: { ID: id },
         success: function(response) {
             $('.response').append(response);
+            $('.wine-feed-box').empty();
+            refreshWine();
           }
     });
+  });
+}
+
+function refreshWine(){
+  $.ajax({
+    type: 'GET',
+    url: 'scripts/php/refresh_wine_update.php',
+    dataType: 'html',
+    success: function(response){
+      $('.wine-feed-box').append(response);
+    }
   });
 }
