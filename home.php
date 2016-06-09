@@ -16,9 +16,6 @@ if($_GET['logout']==1 AND $_SESSION['id']){
   session_start();
 }
 
-
-include('connection.php');
-
 //checks which submit button was pressed
 //Register button pressed
 if($_POST['submit']=="Register"){
