@@ -25,7 +25,7 @@ function wineApiCall(winery){
   var wineSearch = winery.searchApi;
   $.ajax({
     type: 'GET',
-    //dataType: "jsonp",
+    dataType: "jsonp",
     url: 'https://services.wine.com/api/beta2/service.svc/json/catalog?search='+wineSearch+'&size=3&apikey='+apiKey+'',
     success: displayResults
   });
