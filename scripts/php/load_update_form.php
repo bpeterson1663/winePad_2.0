@@ -5,8 +5,6 @@
   $query = "SELECT * FROM winelist_".$_COOKIE['username']." WHERE ID='".$ID."';";
   $result = mysqli_query($link, $query);
 
-  echo (int)$ID.'</br>';
-  echo $_COOKIE['username'];
   if($row = mysqli_fetch_array($result)){
       echo '<form id="updateWineForm" method="POST">
         <input name="id" value="'.$ID.'" hidden />
@@ -36,19 +34,26 @@
         </div>
         <div class="form-group">
           <label for="cost">Cost: </label>
-          <input class="form-control" placeholder="Cost" type="number" name="cost" value="'.$row['Cost'].'"/>
+          <input class="form-control" placeholder="Cost" type="number" name="cost" value="'.number_format($row['Cost'],2).' "step="any"/>
         </div>
         <div class="form-group">
           <label for="price">Price: </label>
-          <input class="form-control" placeholder="Price" type="number" name="price" value="'.$row['Price'].'"/>
+          <input class="form-control" placeholder="Price" type="number" name="price" value="'.number_format($row['Price'],2).'" step="any"/>
         </div>
         <div class="form-group">
           <label for="inventory">Inventory: </label>
-          <input class="form-control" placeholder="Inventory" type="number" name="inventory" value="'.$row['Inventory'].'"/>
+          <input class="form-control" placeholder="Inventory" type="number" name="inventory" value="'.number_format($row['Inventory'],1).'" step="any"/>
         </div>
         <div class="form-group">
           <label for="size">Size: </label>
-          <input class="form-control" placeholder="Size" type="number" name="size" value="'.$row['Size'].'"/>
+          <select class="form-control" placeholder="Size" type="number" name="size">
+            <option value="'.$row['Size'].'" selected>'.$row['Size'].'</option>
+            <option value="187 mL">187 mL</option>
+            <option value="375 mL">375 mL</option>
+            <option value="750 mL">750 mL</option>
+            <option value="1.5 L">1.5 L</option>
+            <option value="3.0 L">3.0 L</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="tastingnotes">Tasting Notes: </label>
@@ -60,7 +65,6 @@
         </div>
           <input class="btn btn-danger" type="submit" name="submit" value="Update Wine"  />
       </form>';
-
   }
 
  ?>

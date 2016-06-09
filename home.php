@@ -11,7 +11,8 @@
     <script src="vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="scripts/js/display_wine.js" type="text/javascript"></script>
-    
+    <script src="scripts/js/calculations.js" type="text/javascript"></script>
+
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="styles/styles.css" rel="stylesheet" />
     <link href="styles/animate.css" rel="stylesheet" />
@@ -48,6 +49,9 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
           <h1>Home</h1>
+          <div class="dashboard">
+
+          </div>
           <div class="wine-feed-box">
 
           </div>

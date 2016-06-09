@@ -17,9 +17,6 @@
     $tastingnotes = $_POST['tastingnotes'];
     $wineryinfo = $_POST['wineryinfo'];
 
-    // $query = "INSERT INTO `winelist_".$_COOKIE['username']."` (`Name`, `Varietal`, `Vintage`, `Appellation`, `Region`, `Imgurl`, `Cost`, `Price`, `Size`, `Inventory`, `Tastingnotes`, `WineryInfo`) VALUES ('".$name."', '".$varietal."', '".$vintage."', '"
-    //             .$appellation."', '".$region."', '".$imageurl."', '".$cost."', '".$price."', '".$size."', '".$inventory."', '".$tastingnotes."', '".$wineryinfo."');";
-
     $query = "UPDATE `winelist_".$_COOKIE['username']."`".
               "SET `Name`='".$name."',`Varietal`='".$varietal."',`Vintage`='".$vintage."',`Appellation`='".$appellation."',`Region`='".$region."',`Imgurl`='".$imageurl."',`Cost`='".$cost."',`Price`='".$price."',`Size`='".$size."',`Inventory`='".$inventory."', ".
               "`Tastingnotes`='".$tastingnotes."',`Wineryinfo`='".$wineryinfo."' WHERE ID='".$ID."';";
@@ -29,7 +26,6 @@
     }else{
       $message = '<div class="alert alert-danger">There was an error updating your wine. Please try again.</div>';
     }
-
   }
 
  ?>
@@ -98,13 +94,11 @@
               echo('<div class="animated fadeInRight underline">
                       <div class="wine-avatar"><img class="pull-left" src="'.$row['Imgurl'].'" /></div>
                       <div><b>'.$row['Name'].' '.$row['Vintage'].' '.$row['Varietal'].'</b></div>
-                      <div>Inventory: '.$row['Inventory'].' Cost: $'.$row['Cost'].' Price: $'.$row['Price'].'</div>
+                      <div>Inventory: '.number_format($row['Inventory'],1).' Cost: $'.number_format($row['Cost'],2).' Price: $'.number_format($row['Price'],2).'</div>
                       <button data-id="'.$row['ID'].'" value="'.$row['ID'].'" class="btn btn-danger update-wine" name="update" data-toggle="modal" data-target="#updateWine">Update</button><button value="'.$row['ID'].'" data-id="'.$row['ID'].'" class="btn btn-danger delete" name="delete" >Delete</button>
                    </div>');
               }
             }
-
-
          ?>
 
 

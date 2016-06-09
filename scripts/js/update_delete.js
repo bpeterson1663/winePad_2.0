@@ -1,7 +1,6 @@
 $(document).ready(function(){
-
   $('.delete').on('click', deleteWine);
-
+  console.log("loaded");
   $('.update-wine').on('click', loadUpdateWineModal);
 
 });
@@ -9,14 +8,13 @@ $(document).ready(function(){
 function loadUpdateWineModal(){
   $('#wineUpdateBody').empty();
   var id = $(this).data('id');
-  console.log('id', id);
+  console.log("Made it here");
   $.ajax({
       type: 'POST',
-      url: 'scripts/edit.php',
+      url: 'scripts/php/load_update_form.php',
       data: { ID: id },
       success: function(response) {
           $('#updateWine').modal('show');
-          console.log("Response is, ", response);
           $('#wineUpdateBody').append(response);
         }
   });
@@ -27,7 +25,7 @@ function deleteWine(){
   $('#deleteWine').modal('show');
 
   $('.confirm-delete').on('click',function(){
-    console.log("id is ", id);
+
     $.ajax({
         type: 'POST',
         url: 'scripts/php/delete.php',
@@ -35,16 +33,22 @@ function deleteWine(){
         success: function(response) {
             $('.response').append(response);
             $('.wine-feed-box').empty();
-            refreshWine();
+            loadWine();
           }
     });
   });
 }
 
-function refreshWine(){
+setTimeout(fade_out, 2500);
+
+function fade_out() {
+  $(".alert").fadeOut();
+}
+
+function loadWine(){
   $.ajax({
     type: 'GET',
-    url: 'scripts/php/refresh_wine_update.php',
+    url: 'scripts/php/load_wine_update_delete.php',
     dataType: 'html',
     success: function(response){
       $('.wine-feed-box').append(response);

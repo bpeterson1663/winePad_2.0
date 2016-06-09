@@ -8,11 +8,7 @@ body{
 
 }
 
-#topContainer{
-  margin-top: 100px;
-  text-align:center;
-  color: #d7d1d1;
-}
+
 
 .wine-avatar img {
   height: 40px;
@@ -22,4 +18,19 @@ body{
 
 .wine-avatar {
   padding: 15px 15px 0 15px;
+}
+
+.wine-result-individual{
+  padding: 10px;
+}
+
+.wine-result-individual img{
+  margin: 0 auto;
+  text-align: center;
+}
+
+#topContainer{
+  margin-top: 100px;
+  text-align:center;
+  color: #d7d1d1;
 }

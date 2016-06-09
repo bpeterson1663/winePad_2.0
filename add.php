@@ -9,11 +9,11 @@ if($_POST['submit']=='Add Wine'){
   $varietal = $_POST['varietal'];
   $appellation = $_POST['appellation'];
   $region = $_POST['region'];
-  $cost = $_POST['cost'];
+  $cost = (float)$_POST['cost'];
   $imageurl = $_POST['imageurl'];
-  $price = $_POST['price'];
+  $price = (float)$_POST['price'];
   $size = $_POST['size'];
-  $inventory = $_POST['inventory'];
+  $inventory = (float)$_POST['inventory'];
   $tastingnotes = $_POST['tastingnotes'];
   $wineryinfo = $_POST['wineryinfo'];
 
@@ -38,7 +38,7 @@ if($_POST['submit']=='Add Wine'){
     <script src="vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="scripts/js/wine_api.js" type="text/javascript"></script>
-    
+
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="styles/styles.css" rel="stylesheet" />
     <link href="styles/animate.css" rel="stylesheet" />
@@ -88,9 +88,7 @@ if($_POST['submit']=='Add Wine'){
               </div>
               <input class="btn btn-danger" type="submit" name="submit" value="Search" data-toggle="modal" data-target="#searchResults" />
             </form>
-            <div class="wine-results">
 
-            </div>
 
       </div>
     </div>
@@ -98,57 +96,7 @@ if($_POST['submit']=='Add Wine'){
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <p class="lead">Add Wine Manually</p>
-        <form id="addWineManually" method="POST" >
-          <div class="form-group">
-            <label for="name">Name: </label>
-            <input class="form-control" placeholder="Name" type="text" name="name"/>
-          </div>
-          <div class="form-group">
-            <label for="varietal">Varietal: </label>
-            <input class="form-control" placeholder="Varietal" type="text" name="varietal"/>
-          </div>
-          <div class="form-group">
-            <label for="vintage">Vintage: </label>
-            <input class="form-control" placeholder="Vintage" type="text" name="vintage"/>
-          </div>
-          <div class="form-group">
-            <label for="appellation">Appellation: </label>
-            <input class="form-control" placeholder="Appellation" type="text" name="appellation"/>
-          </div>
-          <div class="form-group">
-            <label for="region">Region: </label>
-            <input class="form-control" placeholder="Region" type="text" name="region"/>
-          </div>
-          <div class="form-group">
-            <label for="imageurl">Image URL: </label>
-            <input class="form-control" placeholder="Imageurl" type="text" name="imageurl"/>
-          </div>
-          <div class="form-group">
-            <label for="cost">Cost: </label>
-            <input class="form-control" placeholder="Cost" type="number" name="cost"/>
-          </div>
-          <div class="form-group">
-            <label for="price">Price: </label>
-            <input class="form-control" placeholder="Price" type="number" name="price"/>
-          </div>
-          <div class="form-group">
-            <label for="inventory">Inventory: </label>
-            <input class="form-control" placeholder="Inventory" type="number" name="inventory"/>
-          </div>
-          <div class="form-group">
-            <label for="size">Size: </label>
-            <input class="form-control" placeholder="Size" type="number" name="size"/>
-          </div>
-          <div class="form-group">
-            <label for="tastingnotes">Tasting Notes: </label>
-            <input class="form-control" placeholder="Tasting Notes" type="text" name="tastingnotes"/>
-          </div>
-          <div class="form-group">
-            <label for="wineryinfo">Winery Information: </label>
-            <input class="form-control" placeholder="Winery Information" type="text" name="wineryinfo"/>
-          </div>
-            <input class="btn btn-danger" type="submit" name="submit" value="Add Wine"  />
-        </form>
+        <button class="btn btn-danger manually-add" data-toggle="modal" data-target="#addWineManuallyModal">Add Wine</button>
 
       </div>
     </div>
@@ -162,7 +110,7 @@ if($_POST['submit']=='Add Wine'){
         <h4 class="modal-title" id="myModalLabel">Search Results</h4>
       </div>
       <div class="modal-body">
-        <div class="wine-results">
+        <div class="wine-results" id="searchResultsList">
 
         </div>
       </div>
@@ -172,7 +120,83 @@ if($_POST['submit']=='Add Wine'){
     </div>
   </div>
 </div>
-
+<!--End Search Results-->
+<!--Start of Add Mannually-->
+<div class="modal fade" id="addWineManuallyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Search Results</h4>
+      </div>
+      <div class="modal-body">
+        <div class="wine-results">
+          <form id="addWineManually" method="POST" >
+            <div class="form-group">
+              <label for="name">Name: </label>
+              <input class="form-control" placeholder="Name" type="text" name="name"/>
+            </div>
+            <div class="form-group">
+              <label for="varietal">Varietal: </label>
+              <input class="form-control" placeholder="Varietal" type="text" name="varietal"/>
+            </div>
+            <div class="form-group">
+              <label for="vintage">Vintage: </label>
+              <input class="form-control" placeholder="Vintage" type="text" name="vintage"/>
+            </div>
+            <div class="form-group">
+              <label for="appellation">Appellation: </label>
+              <input class="form-control" placeholder="Appellation" type="text" name="appellation"/>
+            </div>
+            <div class="form-group">
+              <label for="region">Region: </label>
+              <input class="form-control" placeholder="Region" type="text" name="region"/>
+            </div>
+            <div class="form-group">
+              <label for="imageurl">Image URL: </label>
+              <input class="form-control" placeholder="Imageurl" type="text" name="imageurl"/>
+            </div>
+            <div class="form-group">
+              <label for="cost">Cost: </label>
+              <input class="form-control" placeholder="Cost" type="number" step="any" name="cost"/>
+            </div>
+            <div class="form-group">
+              <label for="price">Price: </label>
+              <input class="form-control" placeholder="Price" type="number" step="any" name="price"/>
+            </div>
+            <div class="form-group">
+              <label for="inventory">Inventory: </label>
+              <input class="form-control" placeholder="Inventory" type="number" step="any" name="inventory"/>
+            </div>
+            <div class="form-group">
+              <label for="size">Size: </label>
+              <select class="form-control" placeholder="Size" type="number" name="size">
+                <option value="">-</option>
+                <option value="187 mL">187 mL</option>
+                <option value="375 mL">375 mL</option>
+                <option value="750 mL">750 mL</option>
+                <option value="1.5 L">1.5 L</option>
+                <option value="3.0 L">3.0 L</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="tastingnotes">Tasting Notes: </label>
+              <input class="form-control" placeholder="Tasting Notes" type="text" name="tastingnotes"/>
+            </div>
+            <div class="form-group">
+              <label for="wineryinfo">Winery Information: </label>
+              <input class="form-control" placeholder="Winery Information" type="text" name="wineryinfo"/>
+            </div>
+              <input class="btn btn-danger" type="submit" name="submit" value="Add Wine"  />
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
 </body>

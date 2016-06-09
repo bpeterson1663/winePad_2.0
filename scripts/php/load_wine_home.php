@@ -9,7 +9,7 @@
         echo '<div class="animated fadeInRight underline">
                 <div class="wine-avatar"><img class="pull-left" src="'.$row['Imgurl'].'" /></div>
                 <div><b>'.$row['Name'].' '.$row['Vintage'].' '.$row['Varietal'].'</b></div>
-                <div>Inventory: '.$row['Inventory'].' Cost: $'.$row['Cost'].' Price: $'.$row['Price'].'</div>
+                <div>Inventory: '.number_format($row['Inventory'], 1).' Cost: $'.number_format($row['Cost'],2).' Price: $'.number_format($row['Price'],2).'</div>
               </div>';
     };
   }
