@@ -33,7 +33,7 @@ function wineApiCall(winery){
 //display the results upon success of the ajax call
 function displayResults(response){
   console.log("response ", response);
-  //$('#searchResultsList').empty();
+  $('#searchResultsList').empty();
   var wineResults = response.Products.List;
   console.log("results ,", wineResults);
   for(var i = 0; i < wineResults.length; i++){
