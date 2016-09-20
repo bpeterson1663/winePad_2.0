@@ -1,4 +1,7 @@
-# wine_pad_2.0
-Create a wine database management system with login using PHP, MySQL, jQuery, and AJAX. 
+# winePad 2.0
+
+During my time at Prime Digital Academy, I created a wine database management system called winePad for my final solo-project. After graduating Prime, I wanted to keep learning new things so I started learning PHP and wanted to redo that project using PHP. 
+
+Feel free to click the link below to see a live demo
 
 https://floating-basin-55952.herokuapp.com 
