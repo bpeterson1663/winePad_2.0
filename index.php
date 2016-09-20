@@ -164,8 +164,6 @@
 
           <input class="btn btn-lg btn-danger" type="submit" name="submit" value="Register" />
         </form>
-
-
       </div>
     </div>
   </div>

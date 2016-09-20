@@ -1,0 +1,77 @@
+{
+  "_args": [
+    [
+      "angular-fullscreen@^2.0.0",
+      "/Users/Brady/Documents/All_Files/Prime_Digital_Academy/Solo_Project/wineapp_solo_project"
+    ]
+  ],
+  "_from": "angular-fullscreen@>=2.0.0 <3.0.0",
+  "_id": "angular-fullscreen@2.0.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/angular-fullscreen",
+  "_nodeVersion": "3.1.0",
+  "_npmUser": {
+    "email": "viktor.somodi@emarsys.com",
+    "name": "sviktor"
+  },
+  "_npmVersion": "2.13.3",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "angular-fullscreen",
+    "raw": "angular-fullscreen@^2.0.0",
+    "rawSpec": "^2.0.0",
+    "scope": null,
+    "spec": ">=2.0.0 <3.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/angular-fullscreen/-/angular-fullscreen-2.0.0.tgz",
+  "_shasum": "e673edb18a08e5ceb7898b9c7188c663bab5c044",
+  "_shrinkwrap": null,
+  "_spec": "angular-fullscreen@^2.0.0",
+  "_where": "/Users/Brady/Documents/All_Files/Prime_Digital_Academy/Solo_Project/wineapp_solo_project",
+  "author": {
+    "email": "viktor.somodi@emarsys.com",
+    "name": "Viktor Somodi"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "dependencies": {
+    "screenfull": "2.0.0"
+  },
+  "description": "Install ---------",
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "lodash": "^3.10.1",
+    "mocha": "^2.2.5",
+    "sinon": "^1.16.1",
+    "sinon-chai": "^2.8.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "e673edb18a08e5ceb7898b9c7188c663bab5c044",
+    "tarball": "https://registry.npmjs.org/angular-fullscreen/-/angular-fullscreen-2.0.0.tgz"
+  },
+  "gitHead": "e41c9ed3bc6b8143e9109c35bb5fdef3d6bb54c1",
+  "license": "ISC",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "sviktor",
+      "email": "viktor.somodi@emarsys.com"
+    }
+  ],
+  "name": "angular-fullscreen",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "version": "2.0.0"
+}
