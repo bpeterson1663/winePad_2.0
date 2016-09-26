@@ -111,14 +111,9 @@
      
     <script src="scripts/app.js" type="text/javascript"></script>
     <script src="scripts/factories.js" type="text/javascript"></script>
-    <script src="scripts/controllers/AddWineController.js" type="text/javascript"></script>
-    <script src="scripts/controllers/DeleteUpdateController.js" type="text/javascript"></script>
     <script src="scripts/controllers/LoginController.js" type="text/javascript"></script>
-    <script src="scripts/controllers/MoreInfoController.js" type="text/javascript"></script>
     <script src="scripts/controllers/NavigationController.js" type="text/javascript"></script>
-    <script src="scripts/controllers/ReportsController.js" type="text/javascript"></script>
     <script src="scripts/controllers/ShowWineController.js" type="text/javascript"></script>
-    <script src="scripts/controllers/WineDisplayController.js" type="text/javascript"></script>
 
     <link href="vendors/angular-material/angular-material.min.css" type="text/javascript"></script>
     <link href="styles/styles.css" rel="stylesheet" />

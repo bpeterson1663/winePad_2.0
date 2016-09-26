@@ -17,12 +17,20 @@ session_start();
   <head>
     <meta charset="utf-8">
     <title>Home</title>
-    <script src="vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
-    <script src="vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="scripts/js/display_wine.js" type="text/javascript"></script>
-    <script src="scripts/js/calculations.js" type="text/javascript"></script>
-
-    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="vendors/angular/angular.min.js" type="text/javascript"></script>
+    <script src="vendors/angular-animate/angular-animate.min.js" type="text/javascript"></script>
+    <script src="vendors/angular-aria/angular-aria.min.js" type="text/javascript"></script>
+    <script src="vendors/angular-material/angular-material.min.js" type="text/javascript"></script>
+    <script src="vendors/angular-messages/angular-messages.min.js" type="text/javascript"></script>
+    <script src="vendors/angular-route/angular-route.min.js" type="text/javascript"></script>
+    <script src="vendors/angular-sanitize/angular-sanitize.min.js" type="text/javascript"></script>
+    <script src="vendors/angular-touch/angular-touch.min.js" type="text/javascript"></script>
+     
+    <script src="scripts/app.js" type="text/javascript"></script>
+    <script src="scripts/factories.js" type="text/javascript"></script>
+    <script src="scripts/controllers/LoginController.js" type="text/javascript"></script>
+    <script src="scripts/controllers/NavigationController.js" type="text/javascript"></script>
+    <script src="scripts/controllers/ShowWineController.js" type="text/javascript"></script>
     <link href="styles/styles.css" rel="stylesheet" />
     <link href="styles/animate.css" rel="stylesheet" />
   </head>
