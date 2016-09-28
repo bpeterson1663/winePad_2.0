@@ -34,10 +34,10 @@ session_start();
     <link href="styles/styles.css" rel="stylesheet" />
     <link href="styles/animate.css" rel="stylesheet" />
   </head>
-<body data-spy="scroll" data-target=".navbar-collapse">
-  <div class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
+<body>
+  <div>
+    <div>
+      <div>
         <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
