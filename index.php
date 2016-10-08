@@ -93,7 +93,7 @@
   }
  ?>
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <title>winePad</title>
@@ -119,31 +119,7 @@
     <link href="styles/styles.css" rel="stylesheet" />
   </head>
 <body>
-  <div>
-    <div>
-      <div >
-        <button>
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <a>winePad</a>
-      </div>
-      <div>
-        <form method="POST">
-        
-            <label for="loginusername">User Name: </label>
-            <input placeholder="User name" type="text" name="loginusername" id="loginusername" />
-  
-            <label for="loginpassword">Password: </label>
-            <input placeholder="Password" type="password" name="loginpassword" />
-          </div>
-
-          <inputtype="submit" name="submit" value="Log In" />
-        </form>
-      </div>
-    </div>
-  </div>
+  <div ng-include src="'views/partials/navigation.php'"></div>
 
   <div id="topContainer">
     <div>
@@ -175,6 +151,8 @@
         </form>
       </div>
     </div>
+  </div>
+  <div ng-include src="'views/partials/footer.php'">
   </div>
 </body>
 </html>

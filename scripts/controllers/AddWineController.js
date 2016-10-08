@@ -1,4 +1,4 @@
-myApp.controller("AddWineController", ["$scope", "$mdToast","$window", "$location", "$mdDialog","$http", "$mdMedia","$interval", "WineCellarService", function($scope, $mdToast, $window, $location, $mdDialog, $http, $mdMedia, $interval, WineCellarService){
+myApp.controller("AddWineController", ["$scope", "$mdToast","$window", "$location", "$mdDialog",, "$mdMedia", "WineCellarService", function($scope, $mdToast, $window, $location, $mdDialog, $mdMedia, WineCellarService){
   //store the factory object in wineCellar
     var wineCellar = WineCellarService;
     //Check if user is logged in
