@@ -143,34 +143,9 @@ if ($_POST['submit'] == "Log In") {
     <link href="styles/styles.css" rel="stylesheet" />
   </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
-  <div class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand">winePad</a>
-      </div>
-      <div class="collapse navbar-collapse">
-        <div class="pull-left">
-          <ul class="navbar-nav nav">
-            <li><a href="home.php">Home</a></li>
-            <li><a href="add.php">Add</a></li>
-            <li><a href="update_delete.php">Update / Delete</a></li>
-            <li><a href="wine_menu.php">Wine Menu</a></li>
-          </ul>
-        </div>
-        <div class="pull-right">
-          <ul class="navbar-nav nav">
-            <li><a href="index.php?logout=1">Log Out</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  
+  <div ng-include src="'views/partials/navigation.php'"></div>
+  
   <div class="container" id="topContainer">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
