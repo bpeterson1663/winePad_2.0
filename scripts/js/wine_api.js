@@ -15,6 +15,8 @@ function searchApi(){
   $.each(winerySearch, function(index, element){
     wine[element.name] = element.value;
   });
+  console.log("Wine Object being searched ", wine.searchApi);
+  $('#wineResultsLabel').html(" "+wine.searchApi);
   //send information collected to wineApiCall
   wineApiCall(wine);
 }
