@@ -163,8 +163,6 @@ if($_POST['submit']=='Add Wine'){
               </div>
               <input class="btn btn-danger" type="submit" name="submit" value="Search" data-toggle="modal" data-target="#searchResults" />
             </form>
-
-
       </div>
     </div>
 
@@ -177,12 +175,12 @@ if($_POST['submit']=='Add Wine'){
     </div>
   </div>
   <!--Search Results Modal -->
-<div class="modal fade" id="searchResults" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="searchResults" tabindex="-1" role="dialog" aria-labelledby="wineResultsLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Search Results</h4>
+        <h4 class="modal-title" >Search Results for<span id="wineResultsLabel"></span></h4>
       </div>
       <div class="modal-body">
         <div class="wine-results" id="searchResultsList">
@@ -202,7 +200,7 @@ if($_POST['submit']=='Add Wine'){
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Search Results</h4>
+        <h4 class="modal-title" id="myModalLabel">Search Results <span></span></h4>
       </div>
       <div class="modal-body">
         <div class="wine-results">
